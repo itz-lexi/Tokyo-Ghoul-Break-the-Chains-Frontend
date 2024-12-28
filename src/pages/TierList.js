@@ -6,15 +6,15 @@ import Footer from '../components/ui/Footer';
 const TierList = () => {
   const cardData = [
     //Card 1
-    { title: 'Tier List', images: [''],
+    { imageTitle: 'Conqueror Battle : Yaomori ( Jason )', images: [''],
        infoCentred: true },
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '95vh' }}>
       <Container maxWidth="lg" sx={{ padding: '2rem' }}>
         <Typography variant="h3" align="center" gutterBottom>
-          Tokyo Ghoul: Break the Chains Database
+          Tier List
         </Typography>
         <Grid container spacing={4} sx={{ justifyContent: 'flex-start', flexWrap: 'wrap' }}>
           {cardData.map((data) => (

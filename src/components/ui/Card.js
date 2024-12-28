@@ -2,13 +2,29 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const CardComponent = ({ title, description, images = [], infoCentred, characterCard = false, width = 350, height = 180, imageWidth = width - 20, imageHeight = height }) => {
+const CardComponent = ({ 
+  title,
+  description,
+  images = [],
+  infoCentred,
+  characterCard = false,
+  width = 350, height = 180,
+  imageWidth = width - 20,
+  imageHeight = height,
+  imageTitle
+  }) => {
+
     const handleOnClick = () => {
         
     };
     
     return (
     <Card sx={{ width: width, display: 'flex', flexDirection: 'column', height: '100%' }}>
+        {imageTitle && (
+          <Typography variant="h5" component="div" sx={{ padding: '10px', textAlign: 'center', marginTop: 2, marginBottom: 2 }}>
+            {imageTitle}
+          </Typography>
+        )}
         {images && images.length > 0 && images.map((image, index) => (
           <CardMedia
             key={index}
@@ -37,7 +53,7 @@ const CardComponent = ({ title, description, images = [], infoCentred, character
         </CardContent>
 
         {characterCard && (
-          <Button size="small" color="primary" sx={{ margin: '1rem' }}>
+          <Button size="small" color="secondary" sx={{ margin: '1rem', width: 'fit-content', alignSelf: 'center' }}>
             <Link to={`/characters/${title.toLowerCase().replace(' ', '-')}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               Learn More
             </Link>

@@ -22,7 +22,7 @@ const Landing = () => {
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '95vh' }}>
       <Container maxWidth="lg" sx={{ padding: '2rem' }}>
         <Typography variant="h3" align="center" gutterBottom>
           Tokyo Ghoul: Break the Chains Database

@@ -7,24 +7,42 @@ import TierList from './pages/TierList';
 import TeamBuilder from './pages/TeamBuilder';
 import Equipment from './pages/Equipment';
 import Guide from './pages/Guide';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import CharacterDetail from './pages/CharacterDetail';
+import './styles/dark-theme.css';
+import darkTheme from './styles/dark-theme';
+import { ThemeProvider } from '@mui/material/styles';
+import { ToastContainer } from 'react-toastify';
+
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/characters" element={<CharacterList />} />
-          <Route path="/tier-list" element={<TierList />} />
-          <Route path="/team-builder" element={<TeamBuilder />} />
-          <Route path="/equipment" element={<Equipment />} />
-          <Route path="/guide" element={<Guide />} />
-        </Routes>
-      </div>
-    </Router>
+    <ThemeProvider theme={darkTheme}>
+      <Router>
+        <NavBar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/character-list" element={<CharacterList />} />
+            <Route path="/tier-list" element={<TierList />} />
+            <Route path="/team-builder" element={<TeamBuilder />} />
+            <Route path="/equipment" element={<Equipment />} />
+            <Route path="/guide" element={<Guide />} />
+            <Route path="/characters/:type/:characterName" element={<CharacterDetail />} />
+          </Routes>
+          <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="dark"
+      />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 };
 
